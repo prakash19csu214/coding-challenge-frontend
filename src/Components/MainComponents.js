@@ -3,7 +3,7 @@ import FormControl from './FormControl';
 import '../App.css';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchForm, postForm } from '../redux/ActionCreators';
+import { postForm } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
   const mapStateToProps = state => {
@@ -13,7 +13,6 @@ import { actions } from 'react-redux-form';
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchForm: () => {dispatch(fetchForm())},
   postForm: (firstname, lastname, telnum, email, agree, contactType, message) => {dispatch(postForm(firstname, lastname, telnum, email, agree, contactType, message))},
   resetFeedbackForm: () => {dispatch(actions.reset('feedback'))}
 
@@ -27,7 +26,7 @@ class Main extends Component{
   }
 
   componentDidMount() {
-    this.props.fetchForm();
+    this.props.postForm();
 
   }
   

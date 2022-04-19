@@ -1,7 +1,14 @@
 import { baseUrl } from '../shared/baseUrl';
+import * as ActionTypes from './ActionTypes';
 
 export const addForm = (form) => ({
+    type: ActionTypes.ADD_FORM,
     payload: form
+});
+
+export const addForms = (forms) => ({
+    type: ActionTypes.ADD_FORMS,
+    payload: forms
 });
 
 
@@ -43,7 +50,7 @@ export const postForm = (firstname, lastname, telnum, email, agree, contactType,
         }
     )
     .then( response => response.json() )
-    .then( response => dispatch(addForm(response)) )
+    .then( response => dispatch(addForms(response)) )
     .catch(error => {
         console.log('Post form', error.message); 
         alert('Form could not be posted\nError'+ error.message);

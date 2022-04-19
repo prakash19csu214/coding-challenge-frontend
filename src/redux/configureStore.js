@@ -3,11 +3,12 @@ import { createForms } from "react-redux-form";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { InitialFeedback } from "./form";
+import {Form} from "./formControl";
 
 export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
-            comments: Comments,
+            form: Form,
             ...createForms({
                 feedback: InitialFeedback
             })
